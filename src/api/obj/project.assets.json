@@ -3691,11 +3691,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/harmel/Documents/ps-crmeducacional/src/api/api.csproj",
+      "projectUniqueName": "/home/harmel/Desktop/ps-crmeducacional/src/api/api.csproj",
       "projectName": "api",
-      "projectPath": "/home/harmel/Documents/ps-crmeducacional/src/api/api.csproj",
+      "projectPath": "/home/harmel/Desktop/ps-crmeducacional/src/api/api.csproj",
       "packagesPath": "/home/harmel/.nuget/packages/",
-      "outputPath": "/home/harmel/Documents/ps-crmeducacional/src/api/obj/",
+      "outputPath": "/home/harmel/Desktop/ps-crmeducacional/src/api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/harmel/.nuget/NuGet/NuGet.Config"

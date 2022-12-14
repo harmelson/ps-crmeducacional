@@ -34,12 +34,12 @@ Aqui você vai encontrar os detalhes de como está estruturado e de como foi des
   Veja as orientações abaixo para iniciar a execução do projeto.
   > Rode o comando `export DOTNET_CONNECTION_STRING="Server=127.0.0.1;Database=tryitter_db;User=SA;Password=Password12!;TrustServerCertificate=true"`
   - Ele irá setar a variável de ambiente "DOTNET_CONNECTION_STRING" para que seja possível executar os comandos abaixo.
-  > Rode o serviço com o comando `docker-compose up -d`.
+  > Rode o serviço com o comando `docker-compose up -d` dentro da pasta `./src`'.
   - Esse serviço irá inicializar um container chamado `ps-crmeducacional`.
   - A partir daqui você pode rodar o container `ps-crmeducacional` via CLI ou abri-lo no VS Code.
-  > Use o comando `docker exec -it ps-crmeducacional bash`.
+  > Use o comando `docker exec -it ps-crmeducacional bash` dentro da pasta `./src/api`.
   - Ele te dará acesso ao terminal interativo do container criado pelo compose, que está rodando em segundo plano.
-  > Instale as dependências com `dotnet restore`.
+  > Instale as dependências com `dotnet restore` dentro da pasta `./src/api`.
 ---
   
   ✨ **Dica:** Para rodar o projeto desta forma, obrigatoriamente você deve ter o ambiente `.NET` na versão 6.0.0 ou superior instalado em seu computador.
@@ -50,10 +50,10 @@ Aqui você vai encontrar os detalhes de como está estruturado e de como foi des
 
 ## Após a instalação das dependências
 
-  > Use o comando `dotnet ef database update` para iniciar nosso banco de dados.
+  > Use o comando `dotnet ef database update` dentro da pasta `./src/api` para iniciar nosso banco de dados.
   - Ele inicializa e popula o banco de dados desenvolvido com a ORM Entity Framework. 
   Consulte o arquivo `docker-compose` para consultar as entradas para conexão de sua interface de banco de dados SQLServer. Recomendamos o `Azure Data Studio`.
-  > Inicie a aplicação com os comandos `dotnet run`.
+  > Inicie a aplicação com os comandos `dotnet run` dentro da pasta `./src/api`.
   - Para executar a aplicação em sua plataforma de cliente da API ou explorá-la no Swagger na seguinte rota:
     `https://localhost:7027/swagger/index.html`
 ---

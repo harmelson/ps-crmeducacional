@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "S+OQ3mhZmxVwBTA7eiMHSbcotRLSp6Xt/ilBUUfdXLhrTFy1XL6h8ooBCPQQpL8LT/78YWptvt3phroSBaCl1A==",
+  "dgSpecHash": "T0aTANPKznWMiDaMuOODLBBuEvusJSJ3y9M3W9sJPIo4Q8P9X2N62+LbioC0H1f/obkV43QzzXiOha0eoJecXA==",
   "success": true,
-  "projectFilePath": "/home/harmel/Documents/ps-crmeducacional/src/api/api.csproj",
+  "projectFilePath": "/home/harmel/Desktop/ps-crmeducacional/src/api/api.csproj",
   "expectedPackageFiles": [
     "/home/harmel/.nuget/packages/azure.core/1.24.0/azure.core.1.24.0.nupkg.sha512",
     "/home/harmel/.nuget/packages/azure.identity/1.6.0/azure.identity.1.6.0.nupkg.sha512",
