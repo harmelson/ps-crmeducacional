@@ -22,14 +22,6 @@ namespace Api.Controllers
         {
             return Created("",_repository.AddLead(lead));
         }
-
-        // [HttpGet]
-        // [AllowAnonymous]
-        // public ActionResult Get()
-        // {
-        //     Console.WriteLine("passou controller");
-        //     return Ok();
-        // }
     }
 }
     
