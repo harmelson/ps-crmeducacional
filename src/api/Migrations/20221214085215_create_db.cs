@@ -11,12 +11,25 @@ namespace api.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Course",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(58)", maxLength: 58, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Course", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Lead",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CPF = table.Column<string>(type: "nvarchar(14)", maxLength: 14, nullable: false),
+                    CPF = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(58)", maxLength: 58, nullable: false)
                 },
                 constraints: table =>
@@ -34,7 +47,12 @@ namespace api.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Registration", x => new { x.IdLead, x.IdCourse });
-                    table.UniqueConstraint("AK_Registration_IdCourse", x => x.IdCourse);
+                    table.ForeignKey(
+                        name: "FK_Registration_Course_IdCourse",
+                        column: x => x.IdCourse,
+                        principalTable: "Course",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Registration_Lead_IdLead",
                         column: x => x.IdLead,
@@ -43,33 +61,20 @@ namespace api.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Course",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(58)", maxLength: 58, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Course", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Course_Registration_Id",
-                        column: x => x.Id,
-                        principalTable: "Registration",
-                        principalColumn: "IdCourse",
-                        onDelete: ReferentialAction.Cascade);
-                });
+            migrationBuilder.CreateIndex(
+                name: "IX_Registration_IdCourse",
+                table: "Registration",
+                column: "IdCourse");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Course");
+                name: "Registration");
 
             migrationBuilder.DropTable(
-                name: "Registration");
+                name: "Course");
 
             migrationBuilder.DropTable(
                 name: "Lead");
