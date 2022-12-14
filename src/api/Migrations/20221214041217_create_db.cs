@@ -16,7 +16,7 @@ namespace api.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CPF = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
+                    CPF = table.Column<string>(type: "nvarchar(14)", maxLength: 14, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(58)", maxLength: 58, nullable: false)
                 },
                 constraints: table =>

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace api.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20221214014904_create_db")]
+    [Migration("20221214041217_create_db")]
     partial class createdb
     {
         /// <inheritdoc />
@@ -49,8 +49,8 @@ namespace api.Migrations
 
                     b.Property<string>("CPF")
                         .IsRequired()
-                        .HasMaxLength(11)
-                        .HasColumnType("nvarchar(11)");
+                        .HasMaxLength(14)
+                        .HasColumnType("nvarchar(14)");
 
                     b.Property<string>("Name")
                         .IsRequired()
