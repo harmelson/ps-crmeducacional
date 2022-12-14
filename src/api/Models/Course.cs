@@ -7,9 +7,14 @@ namespace Api.Models
     {
         [Key, JsonIgnore]
         public int Id { get; set; }
-        [MinLength(1), MaxLength(58)]
+        [MinLength(1, ErrorMessage = "O campo Nome deve ter no mínimo 1 caractere"), MaxLength(58, ErrorMessage = "O campo Nome deve ter no máximo 58 caracteres")]
         public string Name  { get; set; } = null!;
         [InverseProperty("Course"), JsonIgnore]
-        public Registration Registration  { get; set; } = null!;
-  }
+        public ICollection<Registration>? Registration  { get; set; } = null!;
+    }
+
+    public class CourseDTO : Course
+    {
+        public int Id  { get; set; }
+    }
 }
