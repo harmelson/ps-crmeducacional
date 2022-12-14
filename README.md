@@ -32,7 +32,7 @@ Aqui você vai encontrar os detalhes de como está estruturado e de como foi des
   A aplicação foi pensada para ser testada com o Docker.
   
   Veja as orientações abaixo para iniciar a execução do projeto.
-  > Rode o comando `export DOTNET_CONNECTION_STRING="Server=127.0.0.1;Database=tryitter_db;User=SA;Password=Password12!;TrustServerCertificate=true"`
+  > Rode o comando `export DOTNET_CONNECTION_STRING="Server=127.0.0.1;Database=crm_edc_db;User=SA;Password=Password12!;TrustServerCertificate=true"`
   - Ele irá setar a variável de ambiente "DOTNET_CONNECTION_STRING" para que seja possível executar os comandos abaixo.
   > Rode o serviço com o comando `docker-compose up -d` dentro da pasta `./src`'.
   - Esse serviço irá inicializar um container chamado `ps-crmeducacional`.
