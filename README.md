@@ -22,7 +22,7 @@ Aqui você vai encontrar os detalhes de como está estruturado e de como foi des
 * Docker
 
 
-# ## :whale2: Instalando e executando com Docker
+## :whale2: Instalando e executando com Docker
 
 
 
@@ -48,7 +48,7 @@ Aqui você vai encontrar os detalhes de como está estruturado e de como foi des
 
 ---
 
-  ## Após a instalação das dependências
+## Após a instalação das dependências
 
   > Use o comando `dotnet ef database update` para iniciar nosso banco de dados.
   - Ele inicializa e popula o banco de dados desenvolvido com a ORM Entity Framework. 
@@ -63,7 +63,7 @@ Aqui você vai encontrar os detalhes de como está estruturado e de como foi des
 
 <br/>
 
-# ## :page_with_curl: Documentação
+## :page_with_curl: Documentação
 
 <details>
 <summary><strong>Acessando documentação da API</strong></summary><br />
