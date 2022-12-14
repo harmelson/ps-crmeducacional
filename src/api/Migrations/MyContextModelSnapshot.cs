@@ -24,7 +24,10 @@ namespace api.Migrations
             modelBuilder.Entity("Api.Models.Course", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -44,9 +47,9 @@ namespace api.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CPF")
-                        .HasMaxLength(11)
-                        .HasColumnType("int");
+                    b.Property<string>("CPF")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -68,40 +71,38 @@ namespace api.Migrations
 
                     b.HasKey("IdLead", "IdCourse");
 
+                    b.HasIndex("IdCourse");
+
                     b.ToTable("Registration");
-                });
-
-            modelBuilder.Entity("Api.Models.Course", b =>
-                {
-                    b.HasOne("Api.Models.Registration", "Registration")
-                        .WithMany("Course")
-                        .HasForeignKey("Id")
-                        .HasPrincipalKey("IdCourse")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Registration");
                 });
 
             modelBuilder.Entity("Api.Models.Registration", b =>
                 {
+                    b.HasOne("Api.Models.Course", "Course")
+                        .WithMany("Registration")
+                        .HasForeignKey("IdCourse")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Api.Models.Lead", "Lead")
                         .WithMany("Registration")
                         .HasForeignKey("IdLead")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Course");
+
                     b.Navigation("Lead");
+                });
+
+            modelBuilder.Entity("Api.Models.Course", b =>
+                {
+                    b.Navigation("Registration");
                 });
 
             modelBuilder.Entity("Api.Models.Lead", b =>
                 {
                     b.Navigation("Registration");
-                });
-
-            modelBuilder.Entity("Api.Models.Registration", b =>
-                {
-                    b.Navigation("Course");
                 });
 #pragma warning restore 612, 618
         }

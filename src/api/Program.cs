@@ -12,11 +12,12 @@ builder.Services.AddControllers()
 builder.Services.AddMvcCore();                
 builder.Services.AddDbContext<MyContext>();
 builder.Services.AddScoped<MyContext>();
-
+builder.Services.AddScoped<LeadRepository>();
+builder.Services.AddScoped<CourseRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
     {
-        c.SwaggerDoc("v1", new OpenApiInfo { Title = "apiTryitter", Version = "v1" });
+        c.SwaggerDoc("v1", new OpenApiInfo { Title = "ps_crm_educ_api", Version = "v1" });
         c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
         {
             Name = "Authorization",

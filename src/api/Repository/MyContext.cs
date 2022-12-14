@@ -26,16 +26,13 @@ namespace Api.Repository
         }
 
         protected override void OnModelCreating(ModelBuilder mb)
-        {
-
+        {  
             mb.Entity<Registration>()
-                .HasMany(c => c.Course) 
-                .WithOne(r => r.Registration)
-                .HasPrincipalKey(r => r.IdCourse)
-                .HasForeignKey(c => c.Id)
+                .HasOne(c => c.Course)
+                .WithMany(r => r.Registration)
+                .HasForeignKey(r => r.IdCourse)
                 .OnDelete(DeleteBehavior.Cascade);
-            
-            
+
             mb.Entity<Registration>()
                 .HasOne(l => l.Lead)
                 .WithMany(r => r.Registration)
