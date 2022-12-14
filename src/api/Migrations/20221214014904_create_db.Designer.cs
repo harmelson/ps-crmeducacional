@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace api.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20221213234641_create_db")]
+    [Migration("20221214014904_create_db")]
     partial class createdb
     {
         /// <inheritdoc />
@@ -47,9 +47,10 @@ namespace api.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CPF")
+                    b.Property<string>("CPF")
+                        .IsRequired()
                         .HasMaxLength(11)
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(11)");
 
                     b.Property<string>("Name")
                         .IsRequired()
