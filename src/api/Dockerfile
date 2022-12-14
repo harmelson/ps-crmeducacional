@@ -4,7 +4,13 @@ WORKDIR /App
 
 COPY *.csproj ./
 
+RUN export DOTNET_CONNECTION_STRING="Server=127.0.0.1;Database=tryitter_db;User=SA;Password=Password12!;TrustServerCertificate=true"
+
+RUN docker-compose up
+
 RUN dotnet restore
+
+RUN docker ef database update
 
 COPY . ./
 
@@ -19,4 +25,4 @@ EXPOSE 80
 
 COPY --from=build-env /App/out .
 
-ENTRYPOINT ["dotnet", "api.dll"]
+ENTRYPOINT ["dotnet", "run"]
