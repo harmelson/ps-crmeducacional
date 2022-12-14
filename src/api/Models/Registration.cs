@@ -10,6 +10,6 @@ namespace Api.Models
         public Lead Lead { get; set; } = null!;
         [ForeignKey("IdCourse")]
         public int IdCourse { get; set; }
-        public ICollection<Course> Course { get; set; } = null!;
+        public Course Course { get; set; } = null!;
     }
 }
