@@ -14,6 +14,7 @@ builder.Services.AddDbContext<MyContext>();
 builder.Services.AddScoped<MyContext>();
 builder.Services.AddScoped<LeadRepository>();
 builder.Services.AddScoped<CourseRepository>();
+builder.Services.AddScoped<RegistrationRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
     {
