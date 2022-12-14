@@ -13,8 +13,13 @@ namespace Api.Models
         public ICollection<Registration>? Registration  { get; set; } = null!;
     }
 
-    public class CourseDTO : Course
+    public class CourseDTO
     {
-        public int Id  { get; set; }
+        public string Name  { get; set; } = null!;
+    }
+
+    public class CourseWithIdDTO : Course
+    {
+        public int Id { get; set; }
     }
 }

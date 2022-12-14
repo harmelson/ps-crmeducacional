@@ -11,12 +11,14 @@ namespace Api.Repository
             _context = context;
         }
 
-        public CourseDTO AddCourse(CourseDTO course)
+        public CourseWithIdDTO AddCourse(CourseDTO course)
         {
-            var addedCourse = _context.Course.Add(course);
+            var addedCourse = _context.Course.Add(new Course {
+                Name = course.Name
+            });
             _context.SaveChanges();
 
-            return new CourseDTO {
+            return new CourseWithIdDTO {
                 Id = Convert.ToInt32(addedCourse.Property("Id").CurrentValue),
                 Name = course.Name
             };
